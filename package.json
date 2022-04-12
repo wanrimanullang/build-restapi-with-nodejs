@@ -1,0 +1,23 @@
+{
+  "name": "build-restapi-with-nodejs",
+  "version": "1.0.0",
+  "description": "membuat rest api dengan nodejs, express, dan postgres",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wanrimanullang/build-restapi-with-nodejs.git"
+  },
+  "author": "OnlyManullang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wanrimanullang/build-restapi-with-nodejs/issues"
+  },
+  "homepage": "https://github.com/wanrimanullang/build-restapi-with-nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "pg": "^8.7.3"
+  }
+}
