@@ -23,10 +23,28 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req,res) => {
-    res.send("Hellow World")
+    res.send("Hello OnlyManullang")
 })
 
-app.listen(port, () => console.log(`app listening on port ${port}`));```
+app.listen(port, () => console.log(`app listening on port ${port}`));
+```
+## konfigurasi database postgres
+buat database yang bernama students dan untuk table nya sebagai berikut.
+```sql
+CREATE TABLE public.students (
+	ID SERIAL primary KEY,
+	name varchar(255),
+	email varchar (255),
+	age int,
+	dob date
+);
+```
+mengisi data ke dalam kolom yang telah kita buat, sebagai berikut.
+```sql
+insert into students (name, email, age ,dob)
+values ('OnlyManullang', 'OnlyManullang@email.com', 99, '1822-01-01'),
+('OnlyYou', 'OnlyYou@email.com', 88, '1899-04-02');
+```
 
 
 
