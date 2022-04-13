@@ -45,6 +45,76 @@ insert into students (name, email, age ,dob)
 values ('OnlyManullang', 'OnlyManullang@email.com', 99, '1822-01-01'),
 ('OnlyYou', 'OnlyYou@email.com', 88, '1899-04-02');
 ```
+# membuat connection ke database 
+dalam pembuatan koneksi dibutuhkan beberapa hal yang ada di database. untuk code nya sebagai berikut.
+```javascript
+const Pool = require("pg").Pool;
+
+const pool = new Pool({
+    host: "localhost",
+    user: " ", //user database
+    port: 5432,
+    password: " ", //password database
+    database: " " //nama database
+});
+
+module.exports = pool;
+```
+# membuat controller.js di folder src/student
+dalam pembuatan controller ini bertujuan untuk memudahkan kita dalam integrasi langsung kedatabase. seperti menampilkan, menginput, 
+dan menghapus. bisa dikatakan didalam controller ini method ada method CRUD. untuk source code yang kita masukkan didalam controller sebagai berikut.
+``` javascript
+const pool = require('../../db')
+
+const getStudents = (req, res) => {
+    pool.query("select * from students", (error, result) => {
+        if(error) throw error;
+        res.status(200).json(result.rows);
+    });
+};
+
+
+module.exports = {
+    getStudents,
+};
+```
+# membuat routes.js di folder/students
+di dalam routes untuk menampung semua data yang akan kita integrasikan ke server. bisa dibilang routes sebagai jembatan antara controller ke server.js. tujuan dalam pembuatan ini untuk lebih mudah dalam tracing masalah yang terjadi dan membuat lebih rapi untuk file file kita.
+untuk source code di routes.js sebagai berikut.
+
+```javascript 
+const {Router} = require('express');
+const router = Router();
+const controller = require('./controller')
+
+router.get("/", controller.getStudents)
+
+module.exports = router;
+```
+# integerasi api di server.js
+terakhir kita integerasi untuk file dari routes ke server.js agar dapat di akses user. disini bisa kita bilang untuk metoder API nya.
+source code sebagai berikut. 
+
+```javascript 
+const express = require("express");
+const studentRoutes = require('./src/student/routes')
+
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+app.use('/api', studentRoutes);
+
+app.listen(port, () => console.log(`app listening on port ${port}`));
+```
+# jalankan server.js
+menjalankan server.js dengan menggunakan command 
+```shell
+npx run server.js
+```
+
+
 
 
 
