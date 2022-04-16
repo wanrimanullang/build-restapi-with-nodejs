@@ -1,8 +1,16 @@
 # Pendahuluan
-~HORAS, kali ini membuat sebuah beberapa fitur untuk back-end yang dimana membangun beberapa sistem seperti :
+~Horas, Horas, Horas!! kali ini membuat sebuah project kecil yang bisa sebagai acuan membangun sistem REST API pada back-end. beberapa fitur untuk back-end yang dimana membangun beberapa sistem seperti.
 1. Menampilkan data dari database.
 2. Menampilkan data berdasarkan ID.
 3. Menambahkan data dengan nama, email, umur, dan tanggal
+4. menghapus data yang ada di database
+5. mengupdate data yang ada di database.
+
+#Tools
+beberapa tools yang saya gunakan disini.
+1. Postgres
+2. ExpressJs
+3. 
 
 # install library
 ```bash 
