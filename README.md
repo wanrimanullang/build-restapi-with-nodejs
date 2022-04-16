@@ -1,5 +1,8 @@
-# build rest api with nodejs, express & postgres
-<p> sponsored by : https://www.youtube.com/watch?v=DihOP19LQdg<p>
+# Pendahuluan
+~HORAS, kali ini membuat sebuah beberapa fitur untuk back-end yang dimana membangun beberapa sistem seperti :
+1. Menampilkan data dari database.
+2. Menampilkan data berdasarkan ID.
+3. Menambahkan data dengan nama, email, umur, dan tanggal
 
 # install library
 ```bash 
@@ -113,6 +116,11 @@ menjalankan server.js dengan menggunakan command
 ```shell
 npx run server.js
 ```
+
+# build rest api with nodejs, express & postgres
+<p> sponsored by : https://www.youtube.com/watch?v=DihOP19LQdg<p>
+
+
 
 
 

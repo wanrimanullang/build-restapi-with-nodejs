@@ -17,8 +17,28 @@ const getStudentById = (req, res) => {
     });
 }; 
 
+const addstudent = (req, res) => {
+    const { name, email, age, dob } = req.body;
+    //cek email jika sudah ada
+    pool.query(queries.checkEmailExists, [email], (error, results) => {
+        if(results.rows.length){
+            res.send("Email sudah ada!");
+        }
+        //memasukkan data ke dalam database
+        pool.query(
+            queries.addstudent, 
+            [name, email, age, dob],
+            (error, results) => {
+            if (error) throw error;
+            res.status(201).send("Pendaftaran Berhasil!");
+        }
+        );
+    });
+};
+
 
 module.exports = {
     getStudents,
-    getStudentById
+    getStudentById,
+    addstudent,
 };
